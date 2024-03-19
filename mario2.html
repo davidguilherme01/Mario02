@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mario Game</title>
+  <style>
+    /* CSS para o personagem */
+    .mario {
+      position: absolute;
+      bottom: 0;
+      width: 50px;
+    }
+
+    /* CSS para o obstáculo (pipe) */
+    .pipe {
+      position: absolute;
+      bottom: 0;
+      left: 80%;
+      width: 50px;
+      height: 100px;
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-container" id="game-container">
+    <img src="./imagens/mario.png" alt="Mario" class="mario" id="player">
+    <div class="pipe" id="pipe"></div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const player = document.getElementById("player");
+      const pipe = document.getElementById("pipe");
+
+      let positionX = 0;
+
+      function moveLeft() {
+        positionX -= 10;
+        player.style.left = positionX + "px";
+      }
+
+      function moveRight() {
+        positionX += 10;
+        player.style.left = positionX + "px";
+      }
+
+      function jump(event) {
+        if (event.code === "Space") {
+          player.classList.add('jump');
+          setTimeout(() => {
+            player.classList.remove('jump');
+          }, 500);
+        }
+      }
+
+      document.addEventListener("keydown", function(event) {
+        if (event.key === "ArrowLeft") {
+          moveLeft();
+        } else if (event.key === "ArrowRight") {
+          moveRight();
+        } else if (event.code === "Space") {
+          jump(event);
+        }
+      });
+
+      const loop = setInterval(() => {
+        const pipePosition = pipe.offsetLeft;
+        const marioPosition = +window.getComputedStyle(player).bottom.replace('px', '');
+
+        if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 80) {
+          pipe.style.animation = 'none';
+          pipe.style.left = `${pipePosition}px`;
+          pipe.style.animation = 'none';
+          pipe.style.bottom = `${marioPosition}px`;
+          player.src = './imagens/game-over.png';
+          player.style.width = '75px';
+          player.style.marginLeft = '50px';
+          clearInterval(loop);
+        }
+      }, 10);
+    });
+  </script>
+</body>
+</html>
