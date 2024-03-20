@@ -45,7 +45,11 @@
     animation:jump 550ms ease-out ;
 }
 
-
+/*.clouds {
+    width: 550px;
+    position: absolute;
+    animation: clouds-animation 20s infinite linear;
+}*/
 
 @keyframes enemy-animation {
   from {
@@ -65,7 +69,7 @@
   }
    
   40%{
-    bottom: 180px;
+    bottom: 50px;
  
   }
 
@@ -86,13 +90,3 @@
 
 }
 
-@keyframes clouds-animation{
-   from{
-    right: -550px;
-   }
-
-   to {
-    right: 100%;
-   }
-
-}
