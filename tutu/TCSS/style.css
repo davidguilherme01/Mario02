@@ -22,18 +22,14 @@
     
 }
 
-/*.pipe {
-    position: absolute;
-    bottom: 0;;
-    width: 70px;
-    animation:pipe-animation 2s infinite linear;
-}*/
+
 
 .mario{
-    width: 150px;
-    position:absolute;
-    bottom: 0;
-    
+  width: 150px;
+  position: absolute;
+  bottom: 0;
+  left: 50%; /* Posiciona o Mario no meio horizontal */
+  transform: translateX(-50%); /* Corrige o posicionamento para o centro exato */
 }
 
 .enemy{
@@ -49,11 +45,7 @@
     animation:jump 550ms ease-out ;
 }
 
-/*.clouds {
-    width: 550px;
-    position: absolute;
-    animation: clouds-animation 20s infinite linear;
-}*/
+
 
 @keyframes enemy-animation {
   from {
@@ -66,16 +58,6 @@
 }
 
 
-/*
-@keyframes pipe-animation {
-    from {
-      right: -80px;
-    }
-
-    to {
-      right: 100%;
-    }
-}
 
 @keyframes jump {
   0% {
@@ -113,4 +95,4 @@
     right: 100%;
    }
 
-}*/
+}
