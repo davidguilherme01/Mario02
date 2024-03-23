@@ -1,7 +1,7 @@
 * {
-    margin :0;
-    padding :0;
-    box-sizing: border-box;
+  margin :0;
+  padding :0;
+  box-sizing: border-box;
 }
 #score {
   font-family: 'Arial', sans-serif;
@@ -13,75 +13,55 @@
 }
 
 .game-board {
-    width: 100%;
-    height: 640px;    
-    margin: 0 auto;
-    position: relative;
-    overflow:hidden;
-    
+  width: 100%;
+  height: 640px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
 }
 
-
-.enemy{
-    
+.enemy {
   width: 250px;
-  position:absolute;
+  position: absolute;
   bottom: 0;
   animation: enemy-animation 4s infinite linear;
-  
 }
-
 
 @keyframes enemy-animation {
   from {
-    left: -400px;
+      left: -400px;
   }
 
   to {
-    left: 100%;
+      left: 100%;
   }
 }
 
-.mario{
+.mario {
   width: 150px;
   position: absolute;
   bottom: 0px;
-  left: 50%; /* Posiciona o Mario no meio horizontal */
-  transform: translateX(-50%); /* Corrige o posicionamento para o centro exato */
+  left: 50%;
+  /* Posiciona o Mario no meio horizontal */
+  transform: translateX(-50%);
+  /* Corrige o posicionamento para o centro exato */
 }
 
 .jump {
-  animation: jump 4.5s ease-out;
+  animation: jump 3s ease-out;
 }
 
 @keyframes jump {
   0% {
       bottom: 0px;
-  10% {
-        bottom: 150px;
-    }
   }
-  20% {
-    bottom:250px;
-}
-  30% {
-  bottom: 350px;
-}
+  
   
   50% {
-      bottom: 400px; /* Altura máxima do salto (deve ser ajustada para passar por cima da onda) */
+      bottom: 400px;
+      /* Altura máxima do salto (deve ser ajustada para passar por cima da onda) */
   }
-
-  80%{
-      bottom:300px;
-
-  }
-
-  90% {
-    bottom: 200px;
-}
-
-  
+ 
   100% {
       bottom: 0px;
   }
