@@ -1,39 +1,24 @@
 const mario = document.querySelector('.mario');
-const pipe = document.querySelector('.pipe');
+const enemy = document.querySelector('.enemy');
 
-const jump = () => {
-   mario.classList.add('jump');
-   setTimeout(() => {
-   
-    mario.classList.remove('jump');
-}, 500);
+document.addEventListener('keydown', function(event) {
+  if (event.code === 'Enter') { // Mudança feita aqui, de 'Space' para 'Enter'
+      var mario = document.querySelector('.mario');
+      mario.classList.add('jump');
+      setTimeout(function() {
+          mario.classList.remove('jump');
+      }, 4500); // Remova a classe de salto após 0.5 segundos (ajustado para uma resposta mais rápida)
+  }
+});
 
-}
-
-const loop = setInterval(() =>{
-
-    console.log('loop')
-
-  const pipePosition = pipe.offsetLeft;
+const loop = setInterval(() => {
+  
+  const enemyPosition = enemy.offsetRight;
   const marioPosition = +window.getComputedStyle(mario).bottom.replace('px','');
+  
+  if (enemyPosition <= 120) {
 
-  console.log(marioPosition);
-
-  if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 80) {
-       
-      pipe.style.animation = 'none';
-      pipe.style.left = `${pipePosition}px`;
-
-      pipe.style.animation = 'none';
-      pipe.style.bottom = `${marioPosition}px`;
-      
-      mario.src = './imagens/game-over.png';
-      mario.style.width = '75px'
-      mario.style.marginLeft = '50px'
-
-      clearInterval(loop);     
-    }
-
-},10);
-
-document.addEventListener('keydown', jump)
+    enemy.style.animation ='none'
+    enemy.style.Right = `${enemyPosition}px`;
+  }
+}, 10);
